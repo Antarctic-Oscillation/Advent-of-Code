@@ -13,4 +13,4 @@ The structure of the solution will be as such:\
 ---> Day Solution\
 \
 Years Included so far:\
-[2022](https://adventofcode.com/2022)\
+[2022](https://adventofcode.com/2022)
