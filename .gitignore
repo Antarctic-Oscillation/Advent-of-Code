@@ -31,5 +31,6 @@
 *.out
 *.app
 
-*.txt
+input.txt
+output.txt
 bin
