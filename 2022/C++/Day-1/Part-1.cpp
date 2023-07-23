@@ -23,7 +23,5 @@ int main() {
 
     outputFile << max_sum;
     //-------------------------------------
-    inputFile.close();
-    outputFile.close();
     return 0;
 }
