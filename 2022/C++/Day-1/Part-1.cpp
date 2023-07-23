@@ -4,7 +4,7 @@
 
 int main() {
     std::ifstream inputFile("input.txt");
-    std::ofstream outputFile("output.txt");
+    std::ios_base::sync_with_stdio(false);
     //-------------------------------------
     int max_sum(0);
     {
@@ -21,7 +21,7 @@ int main() {
         max_sum = std::max(max_sum, sum);
     }
 
-    outputFile << max_sum;
+    std::cout << max_sum;
     //-------------------------------------
     return 0;
 }

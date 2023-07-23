@@ -36,6 +36,7 @@
 bin
 temp
 template
+__pycache__
 
 # IO
 output.txt
