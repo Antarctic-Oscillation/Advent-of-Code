@@ -31,9 +31,11 @@
 *.out
 *.app
 
-input.txt
-output.txt
+
+# Files
 bin
-temp.cpp
-temp.py
-temp.cbl
+temp
+
+# IO
+output.txt
+input.txt
