@@ -53,6 +53,7 @@
       **
       **   Write to output.txt
       **
+           DISPLAY MAX-SUM.
            MOVE MAX-SUM TO MAX-SUM-OUTPUT.
            WRITE OUTPUT-RECORD.
            CLOSE INPUT-FILE

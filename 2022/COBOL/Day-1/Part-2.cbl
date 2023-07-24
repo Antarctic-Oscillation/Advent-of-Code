@@ -47,6 +47,7 @@
            END-PERFORM.
       
            ADD FIRST-SUM, SECOND-SUM, THIRD-SUM GIVING MAX-SUM-OUTPUT.
+           DISPLAY MAX-SUM-OUTPUT
            WRITE OUTPUT-RECORD.
            CLOSE INPUT-FILE
                  OUTPUT-FILE.
