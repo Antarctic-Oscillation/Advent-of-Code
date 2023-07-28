@@ -16,11 +16,9 @@ scores = {"X": 1, "Y": 2, "Z": 3}
 
 def main(): 
     score = 0
-    
+
     with open(get_relative_path("input.txt")) as file:
-        Rounds = file.read().split("\n")
-        for Round in Rounds:
-            
+        while Round := file.readline().strip():
             match Round[2]:
                 case "X":
                     Round = Round[:2] + choices[Round[0]][2]
@@ -28,7 +26,7 @@ def main():
                     Round = Round[:2] + choices[Round[0]][1]
                 case "Z":
                     Round = Round[:2] + choices[Round[0]][0]
-                    
+
             score += scores[Round[2]] + outcomes[Round]
             
     print(score)
