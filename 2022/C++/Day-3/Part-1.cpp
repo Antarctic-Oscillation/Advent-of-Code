@@ -4,8 +4,8 @@
 #include <iostream>
 
 int main() {
-    std::ifstream inputFile("input.txt");
     std::ios_base::sync_with_stdio(false);
+    std::ifstream inputFile("input.txt");
     //-------------------------------------
     int priority_sum(0);
 

@@ -3,8 +3,8 @@
 #include <string>
 
 int main() {
-    std::ifstream inputFile("input.txt");
     std::ios_base::sync_with_stdio(false);
+    std::ifstream inputFile("input.txt");
     //-------------------------------------
     int first(0), second(0), third(0);
     

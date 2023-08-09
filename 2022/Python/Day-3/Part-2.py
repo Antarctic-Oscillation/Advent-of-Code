@@ -10,11 +10,12 @@ def main():
     priority_sum = 0
 
     with open(get_relative_path("input.txt")) as file:
+        
         while line1 := set(file.readline().strip()):
-            line2 = set(file.readline().strip())
-            line3 = set(file.readline().strip())
+              line2 = set(file.readline().strip())
+              line3 = set(file.readline().strip())
 
-            priority_sum += calculate_priority_sum(line1, line2, line3)
+              priority_sum += calculate_priority_sum(line1, line2, line3)
 
     print(priority_sum)
 

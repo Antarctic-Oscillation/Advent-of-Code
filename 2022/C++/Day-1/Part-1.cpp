@@ -3,8 +3,8 @@
 #include <string>
 
 int main() {
-    std::ifstream inputFile("input.txt");
     std::ios_base::sync_with_stdio(false);
+    std::ifstream inputFile("input.txt");
     //-------------------------------------
     int max_sum(0);
     
