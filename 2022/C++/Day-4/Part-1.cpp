@@ -16,13 +16,11 @@ struct Elf {
 
 bool one_contains_other(const std::pair<int, int>& A,
                         const std::pair<int, int>& B) {
-    if (B.first >= A.first && B.second <= A.second) {
+    if (B.first >= A.first && B.second <= A.second || 
+        A.first >= B.first && A.second <= B.second) {
         return true;
-    } else if (A.first >= B.first && A.second <= B.second) {
-        return true;
-    } else {
-        return false;
     }
+    return false;
 }
 
 int main() {
