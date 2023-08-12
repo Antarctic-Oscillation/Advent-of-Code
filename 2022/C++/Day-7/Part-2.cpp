@@ -6,44 +6,44 @@
 #include <vector>
 
 constexpr int TOTAL_DISKSPACE = 70000000;
-constexpr int REQUIRED_UNUSED_SPACE = 30000000;
+constexpr int REQ_UNUSED_SPACE = 30000000;
 constexpr bool File = false; 
 constexpr bool Dir = true;
 
 struct TreeNode {
-    int m_size;
-    bool m_is_dir;
-    std::string m_name;
-    TreeNode* m_parent;
-    std::vector<std::unique_ptr<TreeNode>> m_children;
+    int f_size;
+    bool f_is_dir;
+    std::string f_name;
+    TreeNode* f_parent;
+    std::vector<std::unique_ptr<TreeNode>> f_children;
 
     TreeNode(bool is_dir, const std::string& name, int size = -1)
-        : m_is_dir(is_dir), m_name(name), m_size(size), m_parent(nullptr) {}
+        : f_is_dir(is_dir), f_name(name), f_size(size), f_parent(nullptr) {}
 
     void add_child(std::unique_ptr<TreeNode> child) {
-        child->m_parent = this;
-        m_children.push_back(std::move(child));
+        child->f_parent = this;
+        f_children.push_back(std::move(child));
     }
 
     int get_size() {
-        if (m_is_dir && m_size == -1) {
-            m_size = 0;
-            for (const auto& child : m_children) {
-                m_size += child->get_size();
+        if (f_is_dir) {
+            f_size = 0;
+            for (const auto& child : f_children) {
+                f_size += child->get_size();
             }
         }
-        return m_size;
+        return f_size;
     }
 
     void findSmallDirectories(int& min_satisfactory, int& unused_space) {
-        if (!m_is_dir) { return; }
+        if (!f_is_dir) { return; }
 
-        for (const auto& child : m_children) {
+        for (const auto& child : f_children) {
             child->findSmallDirectories(min_satisfactory, unused_space);
         }
 
         int size = get_size();
-        bool condition = (unused_space + size) >= REQUIRED_UNUSED_SPACE;
+        bool condition = (unused_space + size) >= REQ_UNUSED_SPACE;
         if (condition && size <= min_satisfactory) {
             min_satisfactory = size;
         }
@@ -69,10 +69,10 @@ int main() {
                 if (suffix == "/") {
                     curr = root.get();
                 } else if (suffix == "..") {
-                    curr = (!curr->m_parent) ? root.get() : curr->m_parent;
+                    curr = (!curr->f_parent) ? root.get() : curr->f_parent;
                 } else {
-                    for (const auto& child : curr->m_children) {
-                        if (child->m_is_dir && child->m_name == suffix) {
+                    for (const auto& child : curr->f_children) {
+                        if (child->f_is_dir && child->f_name == suffix) {
                             curr = child.get();
                         }
                     }
