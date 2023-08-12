@@ -1,7 +1,7 @@
-#include <fstream>
 #include <iostream>
-#include <memory>
 #include <sstream>
+#include <fstream>
+#include <memory>
 #include <string>
 #include <vector>
 
@@ -58,11 +58,10 @@ int main() {
     while (std::getline(inputFile, line) && !line.empty()) {
         std::istringstream iss(line);
         std::string prefix, name, suffix;
-        iss >> prefix >> name;
+        iss >> prefix >> name >> suffix;
 
         if (prefix == "$") {
             if (name == "cd") {
-                iss >> suffix;
                 if (suffix == "/") {
                     curr = root.get();
                 } else if (suffix == "..") {
@@ -86,5 +85,6 @@ int main() {
     int totalSize = 0;
     root->findSmallDirectories(totalSize);
     std::cout << totalSize << std::endl;
+    
     return 0;
 }
