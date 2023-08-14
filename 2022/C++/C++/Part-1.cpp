@@ -4,21 +4,16 @@
 #include <string>
 #include <vector>
 
-bool scenic_score(std::vector<std::vector<int>>& grid, int& row, int& col, int& n, int& m) {
+#define check(var, row, col, height) if (grid[row][col] >= height) var = true
+
+bool invisible(std::vector<std::vector<int>>& grid, int& row, int& col, int& n, int& m) {
     int height = grid[row][col];
     bool left(false), right(false), up(false), down(false);
 
-    for (int i = col - 1; i >= 0 && !left; --i)
-        if (grid[row][i] >= height) left = true;
-
-    for (int i = col + 1; i < m && !right; ++i)
-        if (grid[row][i] >= height) right = true;
-
-    for (int i = row - 1; i >= 0 && !up; --i)
-        if (grid[i][col] >= height) up = true;
-
-    for (int i = row + 1; i < n && !down; ++i)
-        if (grid[i][col] >= height) down = true;
+    for (int i = col - 1; i >= 0 && !left; --i) check(left, row, i, height);
+    for (int i = col + 1; i < m && !right; ++i) check(right, row, i, height);
+    for (int i = row - 1; i >= 0 && !up; --i) check(up, i, col, height);
+    for (int i = row + 1; i < n && !down; ++i) check(down, i, col, height);
 
     return left && right && up && down;
 }
@@ -37,7 +32,7 @@ int main() {
     }
     for (int row = 0; row < n; row++)
         for (int col = 0, m = grid[0].size(); col < m; col++)
-            if (!scenic_score(grid, row, col, n, m)) answer++;
+            if (!invisible(grid, row, col, n, m)) answer++;
 
     std::cout << answer << "\n";
     //-------------------------------------
