@@ -11,11 +11,11 @@ int scenic_score(std::vector<std::vector<int>>& grid, int& row, int& col, int& n
     int up = 0, down = 0, left = 0, right = 0;
 
     for (int i = col - 1; i >= 0; --i) check(left, row, i, height);
-    for (int i = col + 1; i < m; ++i) check(right, row, i, height);
+    for (int i = col + 1; i < m ; ++i) check(right, row, i, height);
     for (int i = row - 1; i >= 0; --i) check(up, i, col, height);
-    for (int i = row + 1; i < n; ++i) check(down, i, col, height);
+    for (int i = row + 1; i < n ; ++i) check(down, i, col, height);
     
-    return up * down * left * right;
+    return (up * down * left * right);
 }
 
 int main() {

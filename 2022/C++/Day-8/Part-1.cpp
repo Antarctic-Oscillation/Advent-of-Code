@@ -15,7 +15,7 @@ bool invisible(std::vector<std::vector<int>>& grid, int& row, int& col, int& n, 
     for (int i = row - 1; i >= 0 && !up; --i) check(up, i, col, height);
     for (int i = row + 1; i < n && !down; ++i) check(down, i, col, height);
 
-    return left && right && up && down;
+    return (left && right && up && down);
 }
 
 int main() {

@@ -40,7 +40,7 @@
            OPEN INPUT INPUT-FILE
                 OUTPUT OUTPUT-FILE.
       **
-      **   Read frominput.txt
+      **   Read from input.txt
       **
            PERFORM UNTIL EOF = 'Y'
                    READ INPUT-FILE
